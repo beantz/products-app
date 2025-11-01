@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Http\Requests\CreateProductRequest;
 use App\Models\Product;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
@@ -39,7 +40,9 @@ class ProductService {
 
     }
 
-    public function create(Request $request) {
+    public function create(CreateProductRequest $request) {
+
+        $request->validated();
 
         try {
             $product = Product::create($request->all());

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateProductRequest;
 use App\Models\Product;
 use App\Services\ProductService;
 use Illuminate\Http\Request;
@@ -21,7 +22,7 @@ class ProductController extends Controller
 
     }
 
-    public function store(Request $request) {
+    public function store(CreateProductRequest $request) {
         
         return response()->json($this->productService->create($request));
 
