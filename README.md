@@ -2,14 +2,14 @@
 
 API Laravel com ambiente Dockerizado usando Sail e testes com PHPUnit.
 
-## 🚀 Tecnologias
+### 🚀 Tecnologias
 
 - Laravel 11
 - Laravel Sail
 - PHPUnit
 - MySQL
 
-## ⚡ Instalação Rápida
+### ⚡ Instalação Rápida
 
 ```bash
 # Clone o projeto
@@ -20,7 +20,7 @@ cd products-app
 cp .env.example .env
 ```
 
-## Configure as variáveis de ambiente no arquivo .env:
+### Configure as variáveis de ambiente no arquivo .env:
 ```bash
 DB_CONNECTION=mysql
 DB_HOST=mysql
@@ -30,12 +30,12 @@ DB_USERNAME=sail
 DB_PASSWORD=password
 ```
 
-## Instale sanctum caso não estiver instalado
+### Instale sanctum caso não estiver instalado
 ```bash
 composer require laravel/sanctum
 ```
 
-## Instale as dependências do Composer:
+### Instale as dependências do Composer:
 ```bash
 composer install
 
@@ -44,8 +44,8 @@ composer install
 ./vendor/bin/sail artisan migrate
 ```
 
-## Definir alias para usar apenas "sail" ao invés de "./vendor/bin/sail"
-### adicione o alinha abaixo no arquivo de configuração do shell em seu diretório inicial, que como ~/.zshrc ou ~/.bashrc, e depois reinicie seu shell.
+### Definir alias para usar apenas "sail" ao invés de "./vendor/bin/sail"
+### Adicione o alinha abaixo no arquivo de configuração do shell em seu diretório inicial, que como ~/.zshrc ou ~/.bashrc, e depois reinicie seu shell.
 ```bash
 alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
 ```
@@ -54,18 +54,18 @@ alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
 echo $SHELL
 ```
 
-# Configuração para os testes
+## Configuração para os testes
 
-## se caso o phpUnit nao estiver instalado:
+### se caso o phpUnit nao estiver instalado:
 ```bash
 composer require --dev phpunit/phpunit
 ```
 
-## Crie o banco de dados para testes, no seu cliente MySQL (phpMyAdmin, MySQL Workbench, ou linha de comando)
+### Crie o banco de dados para testes, no seu cliente MySQL (phpMyAdmin, MySQL Workbench, ou linha de comando)
 ```bash
 CREATE DATABASE laravel_test;
 ```
-## Crie o arquivo .env.testing
+### Crie o arquivo .env.testing
 ```bash
 cp .env.example .env.testing
 ```
@@ -74,7 +74,7 @@ cp .env.example .env.testing
 php artisan migrate --env=testing
 ``` -->
 
-## Configurar variavel de ambiente em .env.testing
+### Configurar variavel de ambiente em .env.testing
 ```bash
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
@@ -83,7 +83,7 @@ DB_DATABASE=laravel_test
 DB_USERNAME=root
 DB_PASSWORD=your_password
 ```
-## Em .env.testing
+### Em .env.testing
 ```bash
 APP_KEY=preencher aqui com sua app_key gerada en .env
 ```
