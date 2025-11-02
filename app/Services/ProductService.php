@@ -40,9 +40,7 @@ class ProductService {
 
     }
 
-    public function create(CreateProductRequest $request) {
-
-        $request->validated();
+    public function create(Request $request) {
 
         try {
             $product = Product::create($request->all());
