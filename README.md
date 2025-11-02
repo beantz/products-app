@@ -8,7 +8,6 @@ API Laravel com ambiente Dockerizado usando Sail e testes com PHPUnit.
 - Laravel Sail
 - PHPUnit
 - MySQL
-- Redis
 
 ## ⚡ Instalação Rápida
 
@@ -19,6 +18,62 @@ cd products-app
 
 # Configure o ambiente
 cp .env.example .env
+```
+
+## Configure as variáveis de ambiente no arquivo .env:
+```bash
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=sail
+DB_PASSWORD=password
+```
+
+## Instale sanctum caso não estiver instalado
+```bash
+composer require laravel/sanctum
+```
+
+## Instale as dependências do Composer:
+```bash
+composer install
+
 ./vendor/bin/sail up -d
 ./vendor/bin/sail artisan key:generate
 ./vendor/bin/sail artisan migrate
+```
+
+# Configuração para os testes
+
+## se caso o phpUnit nao estiver instalado:
+```bash
+composer require --dev phpunit/phpunit
+```
+
+## Crie o banco de dados para testes, no seu cliente MySQL (phpMyAdmin, MySQL Workbench, ou linha de comando)
+```bash
+CREATE DATABASE laravel_test;
+```
+## Crie o arquivo .env.testing
+```bash
+cp .env.example .env.testing
+```
+<!-- ## Executar as migrations no banco de teste
+```bash
+php artisan migrate --env=testing
+``` -->
+
+## Configurar variavel de ambiente em .env.testing
+```bash
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel_test
+DB_USERNAME=root
+DB_PASSWORD=your_password
+```
+## Em .env.testing
+```bash
+APP_KEY=preencher aqui com sua app_key gerada en .env
+```
