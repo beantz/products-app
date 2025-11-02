@@ -44,6 +44,16 @@ composer install
 ./vendor/bin/sail artisan migrate
 ```
 
+## Definir alias para usar apenas "sail" ao invés de "./vendor/bin/sail"
+### adicione o alinha abaixo no arquivo de configuração do shell em seu diretório inicial, que como ~/.zshrc ou ~/.bashrc, e depois reinicie seu shell.
+```bash
+alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
+```
+### Para descobrir qual shell voce está usando:
+```bash
+echo $SHELL
+```
+
 # Configuração para os testes
 
 ## se caso o phpUnit nao estiver instalado:
