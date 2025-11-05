@@ -90,4 +90,5 @@ DB_PASSWORD=your_password
 APP_KEY=preencher aqui com sua app_key gerada en .env
 ```
 
+### Link para estudos
 [Contéudo auxiliar](https://www.notion.so/API-Laravel-com-PHPUnit-e-Laravel-Sail-28ce9046c6cb8084b84af2a9cc23012a?source=copy_link)
