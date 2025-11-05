@@ -32,11 +32,6 @@ DB_USERNAME=sail
 DB_PASSWORD=password
 ```
 
-### Instale sanctum caso não estiver instalado
-```bash
-composer require laravel/sanctum
-```
-
 ### Instale as dependências do Composer:
 ```bash
 composer install
