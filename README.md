@@ -14,9 +14,17 @@ API Laravel com ambiente Dockerizado usando Sail e testes com PHPUnit.
 ### ⚡ Instalação Rápida
 
 ```bash
-# Clone o projeto
+#Clone o projeto
 git clone https://github.com/beantz/products-app.git
 cd products-app
+
+#instala o Sail e todas as dependências
+docker run --rm \
+    -u "$(id -u):$(id -g)" \
+    -v $(pwd):/var/www/html \
+    -w /var/www/html \
+    laravelsail/php84-composer:latest \
+    composer install --ignore-platform-reqs
 
 # Configure o ambiente
 cp .env.example .env
@@ -34,8 +42,6 @@ DB_PASSWORD=password
 
 ### Instale as dependências do Composer:
 ```bash
-composer install
-
 ./vendor/bin/sail up -d
 ./vendor/bin/sail artisan key:generate
 ./vendor/bin/sail artisan migrate
