@@ -4,10 +4,12 @@ API Laravel com ambiente Dockerizado usando Sail e testes com PHPUnit.
 
 ### 🚀 Tecnologias
 
+- PHP 8.3
 - Laravel 11
 - Laravel Sail
 - PHPUnit
 - MySQL
+- Docker
 
 ### ⚡ Instalação Rápida
 
@@ -86,4 +88,9 @@ DB_PASSWORD=your_password
 ### Em .env.testing
 ```bash
 APP_KEY=preencher aqui com sua app_key gerada en .env
+```
+
+### Contéudo auxiliar:
+```bash
+    https://www.notion.so/API-Laravel-com-PHPUnit-e-Laravel-Sail-28ce9046c6cb8084b84af2a9cc23012a?source=copy_link
 ```
