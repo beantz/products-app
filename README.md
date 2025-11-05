@@ -40,8 +40,11 @@ DB_USERNAME=sail
 DB_PASSWORD=password
 ```
 
-### Instale as dependências do Composer:
+### Suba os containers
 ```bash
+
+./vendor/bin/sail composer require laravel/sanctum
+
 ./vendor/bin/sail up -d
 ./vendor/bin/sail artisan key:generate
 ./vendor/bin/sail artisan migrate
