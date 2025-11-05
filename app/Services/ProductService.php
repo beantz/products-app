@@ -49,7 +49,7 @@ class ProductService {
                 return [
                     'status' => 'success',
                     'message' => 'Produto cadastrado com sucesso',
-                    'data' => $product->toArray()
+                    'data' => $product
                 ];
             }
             

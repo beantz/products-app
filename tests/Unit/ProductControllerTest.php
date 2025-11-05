@@ -71,15 +71,26 @@ class ProductControllerTest extends TestCase
 
     public function test_create_product_success() {
 
+        //só na memoria
         $productData = Product::factory()->make()->toArray();
 
         $request = new \Illuminate\Http\Request($productData);
 
+        //salva no banco
         $response = (new ProductService()->create($request));
 
         $this->assertEquals('success', $response['status']);
         $this->assertEquals('Produto cadastrado com sucesso', $response['message']);
+        $this->assertInstanceOf(Product::class, $response['data']);
 
+        $this->assertDatabaseHas('products', [
+            'name' => $productData['name'],
+            'price' => $productData['price'],
+            'description' => $productData['description'],
+            'category' => $productData['category']
+        ]);
+        $this->assertNotNull($response['data']->id);
+        
     }
 
     public function test_create_product_failure() {
@@ -96,6 +107,8 @@ class ProductControllerTest extends TestCase
         ]);
 
         $response = $this->productController->store(new \Illuminate\Http\Request($productData));
+        $this->assertInstanceOf(\Illuminate\Http\JsonResponse::class, $response);
+        
         $responseData = $response->getData(true);
 
         $this->assertEquals('error', $responseData['status']);
@@ -140,6 +153,7 @@ class ProductControllerTest extends TestCase
         $this->assertStringContainsString('Database connection failed', $responseData['error']);
     }
 
+    //responsavel por limpar os mocks gerados e o laravel(database, service container e etc)
     protected function tearDown(): void
     {
         Mockery::close();
